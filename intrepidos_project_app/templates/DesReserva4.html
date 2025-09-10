@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva - Coco rio negro - Tobia</title>
+    <link rel="stylesheet" href="{% static 'css/DesReservaALL.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ====== HEADER ====== -->
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        <!-- Botón regresar -->
+        <h2>Coco rio negro - Tobia</h2>
+        <div class="regresar">
+            <a href="{% url 'destinos4' %}" class="btn">
+                Regresar <img src="{% static 'img/432141-removebg-preview.png' %}" alt="icono">
+            </a>
+        </div>
+
+        <!-- ====== CONTENIDO PRINCIPAL ====== -->
+        <div class="detalle-container">
+            <!-- Columna izquierda -->
+            <div class="card">
+                <img src="{% static 'img/tobia rio negro.jpg' %}" alt="Coco rio negro - Tobia">
+                <h3>Coco rio negro - Tobia</h3>
+                <p>Precio: $150.000</p>
+                <h4>Transporte: Autobus, Trocha</h4>
+            </div>
+
+            <!-- Columna derecha (Formulario) -->
+            <div class="descripcion">
+                <h4>Formulario de Reserva</h4>
+                <form class="guardar" action="{% url 'reserva4' %}" method="POST">
+                    {% csrf_token %}
+
+                    <label>Correo:</label>
+                    <input type="email" name="correo" required>
+
+                    <label>Personas:</label>
+                    <select name="personas" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">5 personas</option>
+                    </select>
+
+                    <label>Fecha inicio:</label>
+                    <input type="date" name="fecha_inicio" required>
+
+                    <label>Fecha final:</label>
+                    <input type="date" name="fecha_final" required>
+
+                    <label>Hospedaje:</label>
+                    <select name="hospedaje" required>
+                        <option value="">Seleccione</option>
+                        <option value="hotel">Hotel</option>
+                        <option value="hostal">Hostal</option>
+                        <option value="camping">Camping</option>
+                    </select>
+
+                    <label>Habitaciones:</label>
+                    <select name="habitaciones" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">1 habitación</option>
+                        <option value="2">2 habitaciones</option>
+                        <option value="3">3 habitaciones</option>
+                    </select>
+
+                    <label>Tipo destino:</label>
+                    <select name="destino" required>
+                        <option value="4">Coco rio negro - Tobia</option>
+                    </select>
+
+                    <!-- Botones -->
+                    <div class="botones">
+                        <button type="button" class="btn">Ver tipo Guía turístico</button>
+                        <button type="submit" class="btn">Reservar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaje 1 - Cuba</title>
+    <link rel="stylesheet" href="{% static 'css/viaje3.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <h2>Viaje a Cuba</h2>
+        <div class="regresar">
+            <a href="{% url 'viajes' %}" class="btn">
+                Regresar
+                <img src="{% static 'img/432141-removebg-preview.png' %}" alt="botón foto" class="boton">
+            </a>
+        </div>
+
+        <div class="detalle-container">
+            <div class="card">
+                <img src="{% static 'img/viajar-a-CUBA.jpg' %}" alt="Cuba">
+                <h3>Cuba</h3>
+                <p class="p">Precio: $5.000.000</p>
+            </div>
+            <div class="descripcion">
+                <h4>Embárcate en una experiencia inolvidable a Cuba, una isla donde el tiempo parece haberse detenido y la calidez de su gente <br>
+                    te hace sentir como en casa. Recorre las coloridas calles de La Habana Vieja, declarada Patrimonio de la Humanidad, donde <br>
+                    los autos clásicos y la arquitectura colonial crean una atmósfera única. Disfruta del ritmo contagioso del son cubano, <br>
+                    saborea un auténtico mojito al atardecer y deléitate con la deliciosa cocina criolla. <br>
+                    <br>
+
+                    Relájate en las playas paradisíacas de Varadero o Cayo Coco, con arenas blancas y aguas turquesas que invitan al descanso. <br>
+                    Sumérgete en la historia de la Revolución, explora los valles de Viñales entre plantaciones de tabaco, o piérdete en la <br>
+                    vibrante vida nocturna de Trinidad.</h4>
+                <a href="{% url 'via_reserva1' %}" class="btn">Reservar</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

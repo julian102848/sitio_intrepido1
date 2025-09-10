@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Destinos</title>
+  <link rel="stylesheet" href="{% static 'css/destinos.css' %}">
+  <!-- Fuente Russo One -->
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER igual que viajes -->
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <h2>Nuestros Destinos</h2>
+        <a href="{% url 'inicio' %}" class="section-title">Regresar <img src="{% static 'img/432141-removebg-preview.png' %}" alt="Salir"></a>
+
+        <div class="destinos-container">
+            <!-- Tarjeta destino -->
+            <div class="destino-card">
+                <img src="{% static 'img/Gorila en caucho Museo de la llanta.jpg' %}" alt="Destino 1">
+                <h3>Gorila en caucho Museo de la llanta</h3>
+                <p class="precio">Precio: $150.000</p>
+                <a href="{% url 'destinos1' %}" class="btn-destino">Ver Destino</a>
+            </div>
+
+            <div class="destino-card">
+                <img src="{% static 'img/Ciudad reptil melgar.jpg' %}" alt="Destino 2">
+                <h3>Ciudad reptil Melgar</h3>
+                <p class="precio">Precio: $180.000</p>
+                <a href="{% url 'destinos2' %}" class="btn-destino">Ver Destino</a>
+            </div>
+
+            <div class="destino-card">
+                <img src="{% static 'img/Pintball paramo de sumapaz - Usme.jpg' %}" alt="Destino 3">
+                <h3>Paintball páramo de Sumapaz - Usme</h3>
+                <p class="precio">Precio: $80.000</p>
+                <a href="{% url 'destinos3' %}" class="btn-destino">Ver Destino</a>
+            </div>
+
+            <div class="destino-card">
+                <img src="{% static 'img/tobia rio negro.jpg' %}" alt="Destino 4">
+                <h3>Coco rio negro - Tobia</h3>
+                <p class="precio">Precio: $150.000</p>
+                <a href="{% url 'destinos4' %}" class="btn-destino">Ver Destino</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

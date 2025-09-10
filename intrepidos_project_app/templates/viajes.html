@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes</title>
+    <link rel="stylesheet" href="{% static 'css/viajes.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <!-- SECCIÓN PRINCIPAL -->
+    <main>
+        <h2>Nuestros Viajes</h2>
+        <a href="{% url 'inicio' %}" class="section-title">
+            Regresar
+            <img src="{% static 'img/432141-removebg-preview.png' %}" alt="botón foto" class="boton">
+        </a>
+
+        <div class="viajes-container">
+            <!-- VIAJE 1 -->
+            <div class="viaje">
+                <!-- Columna izquierda (solo imagen y título fijo) -->
+                <div class="viaje-izquierda">
+                    <img src="{% static 'img/viajar-a-CUBA.jpg' %}" alt="Imagen del viaje">
+                    <p class="titulo-fijo">Cuba</p>
+                </div>
+
+                <!-- Columna derecha (descripción separada y expandida) -->
+                <div class="viaje-derecha">
+                    <div class="descripcion">
+                        <h3>Embárcate en una experiencia inolvidable a Cuba, una isla donde el tiempo parece haberse detenido y la calidez de su gente <br>
+                    te hace sentir como en casa. Recorre las coloridas calles de La Habana Vieja, declarada Patrimonio de la Humanidad, donde <br>
+                    los autos clásicos y la arquitectura colonial crean una atmósfera única. Disfruta del ritmo contagioso del son cubano, <br>
+                    saborea un auténtico mojito al atardecer y deléitate con la deliciosa cocina criolla. <br>
+                    <br>
+
+                    Relájate en las playas paradisíacas de Varadero o Cayo Coco, con arenas blancas y aguas turquesas que invitan al descanso. <br>
+                    Sumérgete en la historia de la Revolución, explora los valles de Viñales entre plantaciones de tabaco, o piérdete en la <br>
+                    vibrante vida nocturna de Trinidad.</h3>
+
+                        <!-- Footer con botones -->
+                        <div class="descripcion-footer">
+                            <button class="boton-transporte">Transporte: Autobus, Troca</button>
+                            <a href="{% url 'viaje1' %}" class="boton-destino">Ver viaje</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- VIAJE 2 -->
+            <div class="viaje">
+                <!-- Columna izquierda (solo imagen y título fijo) -->
+                <div class="viaje-izquierda">
+                    <img src="{% static 'img/Macchu-Picchu-Peru.jpg' %}" alt="Imagen del viaje">
+                    <p class="titulo-fijo">Peru</p>
+                </div>
+
+                <!-- Columna derecha (descripción separada y expandida) -->
+                <div class="viaje-derecha">
+                    <div class="descripcion">
+                        <h3>Explora Perú, una tierra llena de contrastes y maravillas ancestrales donde cada rincón cuenta una historia milenaria. <br>
+                    Desde la majestuosa ciudadela inca de Machu Picchu, escondida entre las nubes de los Andes, hasta la vibrante Lima con su <br>
+                    fusión gastronómica reconocida mundialmente, este viaje te invita a descubrir lo mejor de Sudamérica. <br>
+                    <br>
+                    Déjate sorprender por los colores vivos del Valle Sagrado, recorre las calles empedradas de Cusco y conéctate con las <br>
+                    tradiciones vivas de comunidades andinas. Navega por el místico Lago Titicaca, el lago navegable más alto del mundo, y <br>
+                    admira los misteriosos geoglifos de Nazca desde el cielo.</h3>
+
+                        <!-- Footer con botones -->
+                        <div class="descripcion-footer">
+                            <button class="boton-transporte">Transporte: Autobus, Troca</button>
+                            <a href="{% url 'viaje2' %}" class="boton-destino">Ver viaje</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIAJE 3 -->
+            <div class="viaje">
+                <!-- Columna izquierda (solo imagen y título fijo) -->
+                <div class="viaje-izquierda">
+                    <img src="{% static 'img/brasil_6482047.jpg' %}" alt="Imagen del viaje">
+                    <p class="titulo-fijo">Brasil</p>
+                </div>
+
+                <!-- Columna derecha (descripción separada y expandida) -->
+                <div class="viaje-derecha">
+                    <div class="descripcion">
+                        <h3>Sumérgete en la energía vibrante de Brasil, un país tan diverso como fascinante, donde cada viaje se convierte en una <br>
+                    celebración de la vida. Desde las playas icónicas de Río de Janeiro, con el Cristo Redentor vigilando desde lo alto, <br>
+                    hasta la inmensidad verde del Amazonas, este destino lo tiene todo: cultura, naturaleza, ritmo y pasión. <br>
+                    <br>
+                    Baila al compás de la samba en un carnaval lleno de colores, relájate en las aguas cálidas de Fernando de Noronha o descubre <br>
+                    las imponentes Cataratas del Iguazú, una de las maravillas naturales del mundo. Explora ciudades llenas de historia como Salvador <br>
+                    de Bahía, donde la herencia africana y portuguesa se mezcla en la música, la danza y la gastronomía.</h3>
+
+                        <!-- Footer con botones -->
+                        <div class="descripcion-footer">
+                            <button class="boton-transporte">Transporte: Autobus, Troca</button>
+                            <a href="{% url 'viaje3' %}" class="boton-destino">Ver viaje</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="footer-copy">REDES SOCIALES</p>
+        <div class="footer-content"> 
+            <div>WHATSAPP: +57 321 2960500</div>
+            <div>FACEBOOK: ************</div>
+            <div>YOUTUBE: ************</div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/viajes.css' %}">
+    <title>{{ viaje.nombre }}</title>
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/logo.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+            <a href="{% url 'login' %}">Iniciar seción</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detalle-container">
+            <div class="card">
+                <img src="{% static viaje.imagen %}" alt="{{ viaje.nombre }}">
+                <h3>{{ viaje.nombre }}</h3>
+                <p>Precio: {{ viaje.precio }}</p>
+            </div>
+            <div class="descripcion">
+                <h4>{{ viaje.descripcion }}</h4>
+                <button class="btn">Reservar</button>
+            </div>
+        </div>
+        <a href="{% url 'viajes' %}" class="btn regresar">Regresar</a>
+    </main>
+</body>
+</html>

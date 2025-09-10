@@ -1,0 +1,120 @@
+/* Basado en viajes.css */
+
+/* Fuente y fondo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Russo One', sans-serif;
+    background-color: #f1f2f6;
+}
+
+/* ====== HEADER ====== */
+header {
+    background: white;
+    border-bottom: 20px solid #1a73e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+header img {
+    height: 50px;
+}
+header nav {
+    display: flex;
+    gap: 25px;
+}
+header nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: 0.3s;
+    text-decoration: underline; /* 👈 Esto hace que siempre estén subrayados */
+    padding: 0 50px; /* Ajusta el margen lateral */
+    font-size: 22px; /* 👈 Ajusta el tamaño aquí */
+}
+header nav a:hover {
+    color: #1a73e8;
+}
+
+/* ======= SECCIÓN PRINCIPAL ======= */
+main {
+    padding: 20px 40px;
+}
+
+.section-title {
+    position: absolute;
+    top: 125px;
+    right: 60px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 22px;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: underline;
+}
+
+.section-title img {
+    width: 25px;
+    height: 25px;
+}
+
+/* ====== GRID DE DESTINOS ====== */
+.destinos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 👈 4 columnas */
+    gap: 30px;
+    margin-top: 110px;
+}
+
+/* ====== TARJETA DESTINO ====== */
+.destino-card {
+    background: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.destino-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.destino-card h3 {
+    font-size: 16px;
+    color: white;
+    background: #1976d2;
+    padding: 8px;
+    border-radius: 15px;
+    margin: 0;
+}
+
+.destino-card .precio {
+    background: black;
+    color: white;
+    padding: 8px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.btn-destino {
+    background: #1976d2;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: background 0.3s ease;
+}
+.btn-destino:hover {
+    color: #1a73e8;
+}

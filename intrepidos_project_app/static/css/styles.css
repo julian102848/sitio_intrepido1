@@ -1,0 +1,478 @@
+/* ====== RESETEO ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Russo One', sans-serif;
+    background-color: #d9d9d9;
+    color: #333;
+}
+
+/* ====== HEADER ====== */
+header {
+    background: white;
+    border-bottom: 20px solid #1a73e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+header img {
+    height: 50px;
+}
+header nav {
+    display: flex;
+    gap: 25px;
+}
+header nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: 0.3s;
+    text-decoration: underline; /* 👈 Esto hace que siempre estén subrayados */
+    padding: 0 50px; /* Ajusta el margen lateral */
+    font-size: 22px; /* 👈 Ajusta el tamaño aquí */
+}
+header nav a:hover {
+    color: #1a73e8;
+}
+
+/* ====== BANNER ====== */
+.banner {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    margin-top: 0.1px;
+    border: 1px solid black;
+    
+    
+}
+
+/* ====== TARJETAS DE VIAJES ====== */
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;  /* espacio entre columnas */
+    row-gap: 80px;     /* espacio entre filas */
+    justify-items: center;
+    padding: 0 20px;   /* 👈 eliminamos el espacio superior */
+    margin-top: -80px; /* 👈 subimos las tarjetas encima del banner */
+}
+.card {
+    width: 280px;
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    border: 1px solid black;
+}
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 1px solid black;
+}
+.card p {
+    margin: 0;
+    padding: 12px;
+    background: #1a73e8;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border: 1px solid black;
+}
+
+/* ====== BOTÓN ====== */
+.btn-center {
+    text-align: center;
+    margin: 20px 0 40px;
+}
+.btn-center a {
+    background: #1a73e8;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 1px solid black;
+}
+.btn-center a:hover {
+    background: #1558b0;
+}
+
+/* ====== SECCIÓN TEXTO ====== */
+.texto {
+    background: #f5f5f5;
+    padding: 30px;
+    margin: 0 40px;
+    border-left: 5px solid #1a73e8;
+    border-radius: 10px;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 25px;
+}
+
+/* ==== linea azul inferior ====*/
+.linea-azul {
+    width: 100%;
+    height: 20px;           /* grosor de la línea */
+    background-color: #1a73e8; /* color azul */
+    margin: 20px 0;        /* espacio arriba y abajo */
+    border-radius: 4px;    /* opcional: esquinas redondeadas */
+    border: 1px solid black;
+}
+
+
+/* Contenedor de la sección de la frase */
+.quote-section {
+    background: #f5f5f5;         /* Fondo gris claro */
+    border-radius: 15px;         /* Bordes redondeados */
+    padding: 80px;               /* Espaciado interno */
+    margin: 30px auto;           /* Margen superior/inferior y centrado */
+    width: 90%;                  /* Que ocupe el 90% del ancho */
+    max-width: 1200px;           /* Máximo ancho (se ve bien en pantallas grandes) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Texto dentro de la sección */
+.quote-section p {
+    font-family: 'Russo One', sans-serif;
+    font-size: 20px;
+    text-align: center;        /* Centrado */
+    color: #111;               /* Negro */
+    line-height: 1.6;          /* Más espacio entre líneas */
+}
+
+
+/* ====== FOOTER ====== */
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 45px;
+    margin-top: 40px;
+}
+footer .redes {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+footer .redes div {
+    font-size: 14px;
+}
+
+
+/* ---- REGISTRAR HTML ---- */
+
+
+/* ===== FORMULARIO DE REGISTRO ===== */
+.registro-box {
+    display: flex;
+    justify-content: space-between;
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 30px;
+    width: 80%;
+    margin: 40px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-top: 8px solid #1a73e8;
+}
+
+.form-left {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.form-left h2 {
+    margin-bottom: 20px;
+}
+
+.form-left label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.form-left input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.form-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn-primary {
+    background: #1a73e8;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background: #1558b0;
+}
+
+.form-buttons select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #999;
+}
+
+/* Columna derecha */
+.form-right {
+    flex: 1;
+    text-align: center;
+}
+
+.form-right .regresar {
+    display: block;
+    text-align: right;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    text-decoration: underline; /* 👈 Esto hace que siempre estén subrayados */
+}
+.form-right .regresar:hover {
+    color: #1a73e8;
+}
+
+.form-right .logo {
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+.form-right .foto {
+    width: 80%;
+    border-radius: 12px;
+}
+
+.linea-azul-registrar {
+    width: 100%;
+    height: 20px;           /* grosor de la línea */
+    background-color: #1a73e8; /* color azul */
+    margin: 0;        /* espacio arriba y abajo */
+    border-radius: 4px;    /* opcional: esquinas redondeadas */
+}
+
+
+/* --- */
+
+/* Estilo regresar */
+.regresar-container {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.icono-regresar {
+    width: 22px;
+    height: 22px;
+}
+
+.regresar {
+    display: inline-flex;
+    align-items: center;  /* Centra verticalmente el texto y la imagen */
+    gap: 5px;             /* Espacio entre el texto y el ícono */
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.regresar .boton {
+    width: 22px;   /* tamaño del ícono */
+    height: auto;
+    vertical-align: middle;
+}
+
+
+/* ====LOGIN==== */
+
+
+
+/* ====== Barra superior ====== */
+.top-bar{
+  width: 96%;
+  margin: 16px auto 24px auto;
+  height: 10px;
+  background: #2e79d2;
+  border-radius: 6px;
+  position: relative;
+}
+.top-bar .inicio{
+  position: absolute;
+  right: 8px;
+  top: -22px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .5px;
+  color: #1f2a44;
+}
+
+
+/* ====== Tarjeta principal del LOGIN ====== */
+.login-container {
+  width: min(1120px, 92vw);
+  margin: 0 auto 48px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(25, 40, 72, .08);
+  padding: 28px 34px;
+  display: grid;
+  grid-template-columns: 58% 42%;
+  gap: 24px;
+  align-items: center;
+}
+
+
+/* ====== Imagen izquierda ====== */
+.image-section{
+  display: grid;
+  place-items: center;
+  padding: 8px;
+}
+.image-section img{
+  width: 92%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 32px;          /* borde suave del contenedor */
+  clip-path: circle(47% at 48% 50%); /* recorte circular grande */
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+/* ====== Panel derecho ====== */
+.form-section h1{
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #1f2a44;
+  text-transform: uppercase;
+}
+.form-section h2{
+  margin: 6px 0 18px;
+  font-size: 26px;
+  font-weight: 800;
+  color: #3174c6;
+  text-transform: uppercase;
+}
+
+/* Caja de login */
+.login-box{
+  background: #f7f8fb;
+  border: 1px solid #e6e9f0;
+  border-radius: 18px;
+  padding: 18px;
+}
+.login-box h3{
+  margin: 0 0 14px 0;
+  background: #3174c6;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* Inputs */
+.login-box input[type="text"],
+.login-box input[type="password"]{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #d8dfea;
+  border-radius: 14px;
+  padding: 0 14px;
+  outline: none;
+  background: #fff;
+  margin: 10px 0;
+}
+.login-box input:focus{
+  border-color: #3174c6;
+  box-shadow: 0 0 0 3px rgba(49,116,198,.15);
+}
+
+/* Botones */
+.buttons{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 8px 0 6px;
+}
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 18px;
+  border-radius: 20px;
+  border: 0;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .05s ease, box-shadow .2s ease;
+}
+.btn:active{ transform: translateY(1px); }
+.btn-primary{
+  background: #2e79d2;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(46,121,210,.25);
+}
+.btn-primary:hover{ filter: brightness(1.05); }
+.btn-secondary{
+  background: #e6e9f0;
+  color: #1f2a44;
+}
+.btn-secondary:hover{ filter: brightness(1.03); }
+
+.forgot{
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #1f2a44;
+  text-decoration: none;
+}
+.forgot:hover{ text-decoration: underline; }
+
+.campo-poli {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* separación entre "Políglota:" y los radios */
+    margin-top: 10px;
+}
+
+.campo-poli label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0px 15px; /* quita saltos innecesarios */
+}
+
+
+/* ====== Responsivo ====== */
+@media (max-width: 1024px){
+  .container{ grid-template-columns: 1fr; padding: 22px; }
+  .image-section img{ width: 78%; clip-path: circle(46% at 50% 50%); }
+  .form-section{ text-align: center; }
+  .buttons{ justify-content: center; }
+}
+@media (max-width: 560px){
+  .top-bar{ width: 94%; }
+  .image-section img{ width: 86%; }
+}

@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="registro-box">
+        <!-- Columna izquierda (formulario) -->
+        <div class="form-left">
+            <h2>Registrarse ahora</h2>
+
+            <!-- Errores de Django (validaciones servidor) -->
+            {% if form.non_field_errors %}
+                <div class="error-box">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <form action="#" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Campos comunes -->
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="{{ request.POST.nombre }}">
+                {{ form.nombre.errors }}
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" value="{{ request.POST.apellido }}">
+                {{ form.apellido.errors }}
+
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" value="{{ request.POST.correo }}">
+                {{ form.correo.errors }}
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" value="{{ request.POST.telefono }}">
+                {{ form.telefono.errors }}
+
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" value="{{ request.POST.cedula }}">
+                {{ form.cedula.errors }}
+
+                <!-- Campos para GUIA -->
+                <div id="campos-guia" style="display: none;">
+                    <label for="licencia">Licencia:</label>
+                    <input type="text" id="licencia" name="licencia" value="{{ request.POST.licencia }}">
+                    {{ form.licencia.errors }}
+
+                    <div class="campo-poli">
+                        <label>Políglota:</label>
+                        <label>
+                            <input type="radio" name="poli" value="True" {% if request.POST.poli == "True" %}checked{% endif %}> Sí
+                        </label>
+                        <label>
+                            <input type="radio" name="poli" value="False" {% if request.POST.poli == "False" %}checked{% endif %}> No
+                        </label>
+                        {{ form.poli.errors }}
+                    </div>
+                </div>
+
+
+
+                <!-- Campos para ADMIN -->
+                <div id="codigo-otorgado" style="display:none;">
+                    <label for="codigo_otorgado">Código (Otorgado):</label>
+                    <input type="text" name="codigo_otorgado" value="{{ request.POST.codigo_otorgado }}">
+                    {{ form.codigo_otorgado.errors }}
+                </div>
+
+                <!-- Campos para PROVEEDOR -->
+                <div id="campos-proveedor" style="display: none;">
+                    <label for="nombre_proveedor">Nombre del Servicio/Hotelería:</label>
+                    <input type="text" id="nombre_proveedor" name="nombre_proveedor" value="{{ request.POST.nombre_proveedor }}">
+                    {{ form.nombre_proveedor.errors }}
+
+                    <label for="tipo_servicio">Tipo servicio:</label>
+                    <input type="text" id="tipo_servicio" name="tipo_servicio" value="{{ request.POST.tipo_servicio }}">
+                    {{ form.tipo_servicio.errors }}
+
+                    <label for="certificado">Certificado de existencia (PDF):</label>
+                    <input type="file" id="certificado" name="certificado">
+                    {{ form.certificado.errors }}
+
+                    <label for="doc_representacion">Documento representación legal (PDF):</label>
+                    <input type="file" id="doc_representacion" name="doc_representacion">
+                    {{ form.doc_representacion.errors }}
+                </div>
+
+                <!-- Contraseñas -->
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password">
+                {{ form.password.errors }}
+
+                <label for="confirmar_password">Confirmar Contraseña:</label>
+                <input type="password" id="confirmar_password" name="confirmar_password">
+                {{ form.confirmar_password.errors }}
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn-primary">Registrarse</button>
+                    <select id="rol" name="rol">
+                        <option value="usuario" {% if request.POST.rol == "usuario" %}selected{% endif %}>Cliente</option>
+                        <option value="admin" {% if request.POST.rol == "admin" %}selected{% endif %}>Admin</option>
+                        <option value="guia" {% if request.POST.rol == "guia" %}selected{% endif %}>Guía</option>
+                        <option value="proveedor" {% if request.POST.rol == "proveedor" %}selected{% endif %}>Proveedor</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <!-- Columna derecha (logo y foto) -->
+        <div class="form-right">
+            <a href="{% url 'login' %}" class="regresar">
+                Regresar
+                <img src="{% static 'img/432141-removebg-preview.png' %}" alt="botón foto" class="boton">
+            </a>
+            <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo" class="logo">
+            <img src="{% static 'img/Pareja registro 423.png' %}" alt="Pareja viajando" class="foto">
+        </div>
+    </div>
+
+    <!-- Script para alternar campos -->
+    <script>
+        const rolSelect = document.getElementById('rol');
+        const guiaCampos = document.getElementById('campos-guia');
+        const proveedorCampos = document.getElementById('campos-proveedor');
+        const codigoField = document.getElementById("codigo-otorgado");
+
+        function actualizarCampos() {
+            guiaCampos.style.display = (rolSelect.value === 'guia') ? 'block' : 'none';
+            proveedorCampos.style.display = (rolSelect.value === 'proveedor') ? 'block' : 'none';
+            codigoField.style.display = (rolSelect.value === 'admin') ? 'block' : 'none';
+        }
+        rolSelect.addEventListener("change", actualizarCampos);
+        window.onload = actualizarCampos;
+    </script>
+
+    <!-- Script para validaciones y alertas (incluye verificación de correo existente) -->
+    <script>
+        const form = document.querySelector("form");
+        const correoInput = document.getElementById("correo");
+
+        // Llamada al endpoint para saber si el correo existe
+        async function emailExists(correo) {
+            const res = await fetch("{% url 'validar_correo' %}?correo=" + encodeURIComponent(correo));
+            if (!res.ok) return false;
+            const data = await res.json();
+            return !!data.exists;
+        }
+
+        // Chequeo en vivo al salir del campo correo
+        correoInput.addEventListener("blur", async () => {
+            const correo = correoInput.value.trim();
+            if (!correo) return;
+            const exists = await emailExists(correo);
+            if (exists) {
+                alert("Este correo ya está registrado.");
+                correoInput.focus();
+            }
+        });
+
+        // Validación completa al enviar
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault(); // controlamos el envío manualmente
+            let errores = [];
+
+            const regexLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+            const regexNumeros = /^\d+$/;
+            const nombre = document.getElementById("nombre").value;
+            const apellido = document.getElementById("apellido").value;
+            const telefono = document.getElementById("telefono").value;
+            const cedula = document.getElementById("cedula").value;
+            const pass1 = document.getElementById("password").value;
+            const pass2 = document.getElementById("confirmar_password").value;
+            const rol = document.getElementById("rol").value;
+            const correo = correoInput.value.trim();
+
+            // Nombre y apellido solo letras
+            if (!regexLetras.test(nombre)) errores.push("El campo 'Nombre' solo puede contener letras.");
+            if (!regexLetras.test(apellido)) errores.push("El campo 'Apellido' solo puede contener letras.");
+
+            // Teléfono y cédula solo números
+            if (!regexNumeros.test(telefono)) errores.push("El campo 'Teléfono' solo puede contener números.");
+            if (!regexNumeros.test(cedula)) errores.push("El campo 'Cédula' solo puede contener números.");
+
+            // Licencia solo números si es guía
+            if (rol === "guia") {
+                const licencia = document.getElementById("licencia").value;
+                if (!regexNumeros.test(licencia)) errores.push("El campo 'Licencia' solo puede contener números.");
+            }
+
+            // Contraseñas coincidan
+            if (pass1 !== pass2) errores.push("Las contraseñas no coinciden.");
+
+            // Archivos PDF obligatorios si es proveedor
+            if (rol === "proveedor") {
+                const certificado = (document.getElementById("certificado").value || "").toLowerCase();
+                const doc = (document.getElementById("doc_representacion").value || "").toLowerCase();
+                if (!certificado.endsWith(".pdf")) errores.push("El certificado debe ser un archivo PDF.");
+                if (!doc.endsWith(".pdf")) errores.push("El documento de representación debe ser un archivo PDF.");
+            }
+
+            // Código admin
+            if (rol === "admin") {
+                const codigo = document.querySelector("input[name='codigo_otorgado']").value;
+                if (codigo !== "INTREPIDOS-2024") errores.push("El código de administrador no es válido.");
+            }
+
+            // Correo duplicado (consulta al servidor)
+            if (correo) {
+                try {
+                    const exists = await emailExists(correo);
+                    if (exists) errores.push("Este correo ya está registrado.");
+                } catch (e) {
+                    console.error(e);
+                }
+            }
+
+            // Mostrar alertas o enviar
+            if (errores.length > 0) {
+                alert(errores.join("\n"));
+                return;
+            }
+            form.submit();
+        });
+    </script>
+</body>
+</html>

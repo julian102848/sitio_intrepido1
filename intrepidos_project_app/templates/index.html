@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <img src="{% static 'img/Inicio.jpg' %}" alt="Banner" class="banner">
+
+    <div class="container">
+        <!-- 1 -->
+        <div class="card">
+            <img src="{% static 'img/Gorila en caucho Museo de la llanta.jpg' %}" alt="Gorila en caucho Museo de la llanta">
+            <p>{% if viajes|length > 0 %}{{ viajes.0.nombre_viaje }}{% endif %}</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="card">
+            <img src="{% static 'img/Pintball paramo de sumapaz - Usme.jpg' %}" alt="Paintball páramo de Sumapaz">
+            <p>{% if viajes|length > 1 %}{{ viajes.1.nombre_viaje }}{% endif %}</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="card">
+            <img src="{% static 'img/Ciudad reptil melgar.jpg' %}" alt="Ciudad reptil Melgar">
+            <p>{% if viajes|length > 2 %}{{ viajes.2.nombre_viaje }}{% endif %}</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="card">
+            <img src="{% static 'img/tobia rio negro.jpg' %}" alt="Tobia río negro">
+            <p>{% if viajes|length > 3 %}{{ viajes.3.nombre_viaje }}{% endif %}</p>
+        </div>
+    </div>
+
+    <div class="btn-center">
+        <a href="{% url 'viajes' %}">Ver todos los viajes</a>
+    </div>
+
+    <!-- Línea azul -->
+    <div class="linea-azul"></div>
+
+    <div class="quote-section">
+        <p>
+            "Explora, descubre y vive nuevas experiencias con Nómada Tours. 
+            Creamos viajes únicos pensados para ti, conectándote con los destinos más mágicos de Colombia y el mundo. 
+            ¡Tu próxima aventura comienza aquí!"
+        </p>
+    </div>
+
+    <footer>
+        <p>REDES SOCIALES</p>
+        <div class="redes">
+            <div>WHATSAPP: +57 321 2960500</div>
+            <div>FACEBOOK: ***********</div>
+            <div>YOUTUBE: ***********</div>
+        </div>
+    </footer>
+
+    {% if not usuario %}
+    <script>
+        // Bloquea navegación si no hay sesión
+        document.querySelectorAll("a").forEach(a => {
+            if (a.getAttribute("href") !== "{% url 'login' %}") {
+                a.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    alert("Debes iniciar sesión primero.");
+                    window.location.href = "{% url 'login' %}";
+                });
+            }
+        });
+    </script>
+    {% endif %}
+</body>
+</html>

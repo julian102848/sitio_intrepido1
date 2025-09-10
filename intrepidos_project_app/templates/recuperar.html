@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña</title>
+    <link rel="stylesheet" href="{% static 'css/recuperar.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Caja principal -->
+    <div class="recuperar-box">
+
+        <div class="recuperar-header">
+            <h2>Recuperar contraseña</h2>
+            <a href="{% url 'login' %}" class="regresar">
+                Regresar
+                <img src="{% static 'img/432141-removebg-preview.png' %}" alt="icono volver">
+            </a>
+        </div>
+
+        <hr>
+
+        <!-- Mostrar alertas de mensajes -->
+        {% if messages %}
+            {% for message in messages %}
+                <script>alert("{{ message|escapejs }}");</script>
+            {% endfor %}
+        {% endif %}
+
+        <div class="recuperar-body">
+            <!-- Columna izquierda -->
+            <div class="recuperar-left">
+                <p>
+                    Querido usuario,<br>
+                    Coloca tu correo electrónico para que llegue un link de verificación
+                </p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="correo">Digite su correo aquí:</label>
+                    <input type="email" id="correo" name="correo" required>
+                    <button type="submit" class="btn">Verificar</button>
+                </form>
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="recuperar-right">
+                <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo Intrepidos Aventura" class="logo">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

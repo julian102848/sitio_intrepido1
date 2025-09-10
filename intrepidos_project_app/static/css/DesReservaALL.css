@@ -1,0 +1,214 @@
+/* ======= RESET Y FUENTES ======= */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f1f2f6;
+}
+
+/* ====== HEADER ====== */
+header {
+    background: white;
+    border-bottom: 20px solid #1a73e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+header img {
+    height: 50px;
+}
+header nav {
+    display: flex;
+    gap: 25px;
+}
+header nav a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+    text-decoration: underline;
+    padding: 0 50px;
+    font-size: 22px;
+    font-family: 'Russo One', sans-serif;
+    font-weight: bold;
+}
+header nav a:hover {
+    color: #1a73e8;
+}
+
+/* ====== DETALLE VIAJE ====== */
+h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+main {
+    padding: 20px 40px;
+    font-family: 'Russo One', sans-serif;
+}
+
+.detalle-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    padding: 40px;
+    align-items: stretch;
+}
+
+/* Columna izquierda (imagen + datos) */
+.detalle-container .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #d4d4d4;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    height: 97.5%;
+    margin-top: 0px;
+}
+
+.detalle-container .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+}
+
+/* Botones dentro de la card */
+.detalle-container .card h3,
+.detalle-container .card h4,
+.detalle-container .card p {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    margin: 10px 0;
+    border-radius: 30px;
+    border: 1px solid black;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.detalle-container .card h3 {
+    background-color: #1976d2;
+    color: white;
+    padding: 10px;
+    font-size: clamp(12px, 1.5vw, 18px);
+    line-height: 1.2;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.detalle-container .card h4 {
+    background-color: #1976d2;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    white-space: normal;
+}
+
+.detalle-container .card p {
+    background-color: #050505;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Columna derecha (cuadro gris con formulario) */
+.detalle-container .descripcion {
+    background: #ddd;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    margin-top: 0px;
+}
+
+.detalle-container .descripcion h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* === FORMULARIO EN COLUMNA === */
+.descripcion form.guardar {
+    display: flex;
+    flex-direction: column;  /* 👉 todos en columna */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.descripcion form.guardar label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.descripcion form.guardar input,
+.descripcion form.guardar select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Botones dentro del formulario */
+.descripcion form.guardar .botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.descripcion form.guardar .btn {
+    background-color: #1976d2;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex: 1;
+    text-align: center;
+}
+
+.descripcion form.guardar .btn:hover {
+    background-color: #163172;
+}
+
+/* Botón regresar */
+.regresar {
+    position: absolute;
+    top: 120px;
+    right: 40px;
+    padding: 0;
+}
+
+.regresar .btn {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 22px;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: underline;
+}
+
+.regresar .btn img {
+    width: 25px;
+    height: 25px;
+}
+
+.regresar .btn:hover {
+    color: #1a73e8;
+}

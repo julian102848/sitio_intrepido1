@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaje 2 - Peru</title>
+    <link rel="stylesheet" href="{% static 'css/viaje3.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <h2>Viaje a Peru</h2>
+        <div class="regresar">
+            <a href="{% url 'viajes' %}" class="btn">
+                Regresar
+                <img src="{% static 'img/432141-removebg-preview.png' %}" alt="botón foto" class="boton">
+            </a>
+        </div>
+
+        <div class="detalle-container">
+            <div class="card">
+                <img src="{% static 'img/Macchu-Picchu-Peru.jpg' %}" alt="Peru">
+                <h3>Peru</h3>
+                <p class="p">Precio: $5.000.000</p>
+            </div>
+            <div class="descripcion">
+                <h4>Explora Perú, una tierra llena de contrastes y maravillas ancestrales donde cada rincón cuenta una historia milenaria. <br>
+                    Desde la majestuosa ciudadela inca de Machu Picchu, escondida entre las nubes de los Andes, hasta la vibrante Lima con su <br>
+                    fusión gastronómica reconocida mundialmente, este viaje te invita a descubrir lo mejor de Sudamérica. <br>
+                    <br>
+                    Déjate sorprender por los colores vivos del Valle Sagrado, recorre las calles empedradas de Cusco y conéctate con las <br>
+                    tradiciones vivas de comunidades andinas. Navega por el místico Lago Titicaca, el lago navegable más alto del mundo, y <br>
+                    admira los misteriosos geoglifos de Nazca desde el cielo.</h4>
+                <a href="{% url 'via_reserva2' %}" class="btn">Reservar</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

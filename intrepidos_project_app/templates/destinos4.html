@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destino 4 tobia rio negro</title>
+    <link rel="stylesheet" href="{% static 'css/destinos1.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <h2>Coco rio negro - Tobia</h2>
+        <div class="regresar">
+            <a href="{% url 'destinos' %}" class="btn">
+                Regresar
+                <img src="{% static 'img/432141-removebg-preview.png' %}" alt="botón foto" class="boton">
+            </a>
+        </div>
+
+        <div class="detalle-container">
+            <div class="card">
+                <img src="{% static 'img/tobia rio negro.jpg' %}" alt="ciudad reptil">
+                <h3>Coco rio negro - Tobia</h3>
+                <p class="p">Precio: $150.000</p>
+                <h4>Transporte: Autobus, Trocha</h4>
+            </div>
+            <div class="descripcion">
+                <h4>Ubicado en el corazón de Tobia, Cundinamarca, uno de los destinos más emocionantes para el turismo de aventura en Colombia, <br>
+                    Coco Río Negro es el lugar perfecto para desconectarte de la rutina y reconectarte con la naturaleza… ¡a pura adrenalina! <br>
+                    <br>
+                    Este paraíso natural te ofrece experiencias únicas como canotaje (rafting) en el río Negro, uno de los más caudalosos de la <br>
+                    región, además de torrentismo, caminatas ecológicas, pozos naturales y espectaculares paisajes tropicales. Todo esto en un <br>
+                    entorno lleno de vegetación exuberante, aire puro y el sonido constante del agua corriendo entre las rocas.</h4>
+                <div class="botones">
+                    <button class="btn">Ver tipo Guia turistico</button>
+                    <a href="{% url 'reserva4' %}" class="btn">Reservar</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

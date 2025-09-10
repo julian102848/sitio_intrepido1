@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guías Turísticos</title>
+    <link rel="stylesheet" href="{% static 'css/guia.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">  
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <!-- BOTÓN REGRESAR -->
+
+
+    <!-- LISTA DE GUÍAS -->
+    <main>
+        <h2>Guías Turísticos registrados</h2>
+        <a href="{% url 'inicio' %}" class="section-title">
+            Regresar 
+            <img src="{% static 'img/432141-removebg-preview.png' %}" alt="Volver">
+        </a>
+
+        <div class="guia-container">
+
+            <!-- Tarjeta 1 -->
+            <div class="guia-card">
+                <img src="{% static 'img/Foto Guia I Perfil.png' %}" alt="Foto guía">
+                <div class="guia-info">
+                    <label>Nombre:</label>
+                    <input type="text" value="Julian" readonly>
+                    <label>Apellido:</label>
+                    <input type="text" value="Pineda" readonly>
+                </div>
+                <a href="{% url 'guia1' %}" class="btn">Ver Guía</a>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="guia-card">
+                <img src="{% static 'img/Foto Guia I Perfil.png' %}" alt="Foto guía">
+                <div class="guia-info">
+                    <label>Nombre:</label>
+                    <input type="text" value="Carolina" readonly>
+                    <label>Apellido:</label>
+                    <input type="text" value="Vargas" readonly>
+                </div>
+                <a href="{% url 'guia2' %}" class="btn">Ver Guía</a>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="guia-card">
+                <img src="{% static 'img/Foto Guia I Perfil.png' %}" alt="Foto guía">
+                <div class="guia-info">
+                    <label>Nombre:</label>
+                    <input type="text" value="Mauricio" readonly>
+                    <label>Apellido:</label>
+                    <input type="text" value="Gonzales" readonly>
+                </div>
+                <a href="{% url 'guia3' %}" class="btn">Ver Guía</a>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="guia-card">
+                <img src="{% static 'img/Foto Guia I Perfil.png' %}" alt="Foto guía">
+                <div class="guia-info">
+                    <label>Nombre:</label>
+                    <input type="text" value="Tatiana" readonly>
+                    <label>Apellido:</label>
+                    <input type="text" value="Quintero" readonly>
+                </div>
+                <a href="{% url 'guia4' %}" class="btn">Ver Guía</a>
+            </div>
+
+            <!-- Tarjeta 5 -->
+            <div class="guia-card">
+                <img src="{% static 'img/Foto Guia I Perfil.png' %}" alt="Foto guía">
+                <div class="guia-info">
+                    <label>Nombre:</label>
+                    <input type="text" value="Andrés" readonly>
+                    <label>Apellido:</label>
+                    <input type="text" value="Ruiz" readonly>
+                </div>
+                <a href="{% url 'guia5' %}" class="btn">Ver Guía</a>
+            </div>
+
+            <!-- Tarjeta 6 -->
+            <div class="guia-card">
+                <img src="{% static 'img/Foto Guia I Perfil.png' %}" alt="Foto guía">
+                <div class="guia-info">
+                    <label>Nombre:</label>
+                    <input type="text" value="Miguel" readonly>
+                    <label>Apellido:</label>
+                    <input type="text" value="Ramirez" readonly>
+                </div>
+                <a href="{% url 'guia6' %}" class="btn">Ver Guía</a>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>

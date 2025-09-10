@@ -1,0 +1,304 @@
+/* ======= RESET Y FUENTES ======= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Russo One', sans-serif;
+    background-color: #f1f2f6;
+}
+
+/* ====== HEADER ====== */
+header {
+    background: white;
+    border-bottom: 20px solid #1a73e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+header img {
+    height: 50px;
+}
+header nav {
+    display: flex;
+    gap: 25px;
+}
+header nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: 0.3s;
+    text-decoration: underline; /* 👈 Esto hace que siempre estén subrayados */
+    padding: 0 50px; /* Ajusta el margen lateral */
+    font-size: 22px; /* 👈 Ajusta el tamaño aquí */
+}
+header nav a:hover {
+    color: #1a73e8;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;          /* Mantener negrilla */
+    font-size: 16px;
+    color: #000;
+    font-family: 'Russo One', sans-serif;   /* 👈 Fuente aplicada */
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #1976d2;  
+    font-weight: bold;
+}
+
+/* ======= SECCIÓN PRINCIPAL ======= */
+main {
+    padding: 20px 40px;
+    border: 1px solid black;
+}
+
+.section-title img{
+    width: 25px;
+    height: 25px;
+}
+
+.section-title{
+    position: absolute;
+    top: 125px;
+    right: 60px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 22px;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* ======= GRID DE VIAJES ======= */
+.viajes-container {
+    display: flex;
+    flex-direction: column; /* 👈 Todo en columna */
+    gap: 30px;              /* Espaciado entre tarjetas */
+    align-items: flex-start; /* 👈 Se alinean todas a la izquierda */
+    padding: 0 40px;
+}
+
+/* ======= TARJETA DE VIAJE ======= */
+/* Contenedor de cada viaje */
+.viaje {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* columna fija izquierda + columna flexible derecha */
+    gap: 55px;  /* 👈 separación entre imagen y descripción */
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+
+/* Columna izquierda */
+.viaje-izquierda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #d4d4d4;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.viaje-izquierda img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+
+/* Columna derecha → cuadro gris (rojo antes) */
+.viaje-derecha {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+
+.descripcion {
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    border: 1px solid black;
+}
+
+
+.descripcion-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+/* Imagen */
+.viaje img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+}
+
+.viaje-imagen img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.titulo-fijo {
+    background-color: #1976d2;
+    color: white;
+    padding: 8px 75px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: 1px solid black;
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+/* Contenido */
+.viaje-content {
+    padding: 15px;
+    background: #e6e6e6;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.viaje-content h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.viaje-content p {
+    margin: 0;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Botones */
+
+/* Botón transporte */
+.boton-transporte {
+    background-color: #1976d2;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+    flex-grow: 1;
+    margin-right: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+/* Botón ver destino */
+.boton-destino {
+    background-color: #1976d2;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid black;
+}
+
+
+.viaje-footer {
+    display: flex;
+    justify-content: space-between; /* 👈 Transporte a la izquierda, botón a la derecha */
+    align-items: center;
+    margin-top: 10px;
+}
+
+.viaje-footer span {
+    background: #1E56A0;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.viaje-footer a {
+    background: #1E56A0;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.viaje-footer a:hover {
+    background: #163172;
+}
+
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 35.5px;
+}
+
+footer .footer-content div {
+    font-size: 14px;
+}
+
+footer .sociales {
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+}
+
+.card .btn:hover {
+    color: #1a73e8;
+}
+
+/* Tarjeta de cada destino */
+.viaje-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px; /* controla el ancho de la tarjeta */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Imagen dentro de la tarjeta */
+.viaje-card img {
+    width: 100%; /* se ajusta al ancho del contenedor */
+    height: auto; /* mantiene proporción */
+    border-radius: 12px;
+    object-fit: cover;
+    height: 220px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.section-title .boton:hover {
+    color: #1a73e8;
+}

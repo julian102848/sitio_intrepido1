@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña</title>
+    <link rel="stylesheet" href="{% static 'css/recuperar.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Caja principal -->
+    <div class="recuperar-box">
+
+        <!-- Header con título y botón regresar -->
+        <div class="recuperar-header">
+            <h2>Recuperar contraseña</h2>
+            <a href="{% url 'login' %}" class="regresar">
+                Regresar
+                <img src="{% static 'img/432141-removebg-preview.png' %}" alt="icono volver">
+            </a>
+        </div>
+
+        <hr>
+
+        <!-- Mostrar alertas de mensajes -->
+        {% if messages %}
+            {% for message in messages %}
+                <script>alert("{{ message|escapejs }}");</script>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Contenido principal -->
+        <div class="recuperar-body">
+            <!-- Columna izquierda con instrucciones y formulario -->
+            <div class="recuperar-left">
+                <p>
+                    Querido usuario,<br>
+                    Ingresa una nueva contraseña y<br>
+                    vuelve a colocar la nueva contraseña
+                </p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <!-- Campo oculto con el token -->
+                    <input type="hidden" name="token" value="{{ token }}">
+
+                    <label for="nueva">Nueva contraseña:</label>
+                    <input type="password" id="nueva" name="nueva" required>
+
+                    <label for="confirmar">Confirmar nueva contraseña:</label>
+                    <input type="password" id="confirmar" name="confirmar" required>
+
+                    <button type="submit" class="btn-primary">Cambiar</button>
+                </form>
+            </div>
+
+            <!-- Columna derecha con logo -->
+            <div class="recuperar-right">
+                <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" 
+                     alt="Logo Intrepidos Aventura" class="logo">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

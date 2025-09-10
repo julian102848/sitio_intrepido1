@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaje 3 - Brasil</title>
+    <link rel="stylesheet" href="{% static 'css/viaje3.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <h2>Viaje a Brasil</h2>
+        <div class="regresar">
+            <a href="{% url 'viajes' %}" class="btn">
+                Regresar
+                <img src="{% static 'img/432141-removebg-preview.png' %}" alt="botón foto" class="boton">
+            </a>
+        </div>
+
+        <div class="detalle-container">
+            <div class="card">
+                <img src="{% static 'img/brasil_6482047.jpg' %}" alt="Brasil">
+                <h3>Brasil</h3>
+                <p class="p">Precio: $10.000.000</p>
+            </div>
+            <div class="descripcion">
+                <h4>Sumérgete en la energía vibrante de Brasil, un país tan diverso como fascinante, donde cada viaje se convierte en una <br>
+                    celebración de la vida. Desde las playas icónicas de Río de Janeiro, con el Cristo Redentor vigilando desde lo alto, <br>
+                    hasta la inmensidad verde del Amazonas, este destino lo tiene todo: cultura, naturaleza, ritmo y pasión. <br>
+                    <br>
+                    Baila al compás de la samba en un carnaval lleno de colores, relájate en las aguas cálidas de Fernando de Noronha o descubre <br>
+                    las imponentes Cataratas del Iguazú, una de las maravillas naturales del mundo. Explora ciudades llenas de historia como Salvador <br>
+                    de Bahía, donde la herencia africana y portuguesa se mezcla en la música, la danza y la gastronomía.</h4>
+                <a href="{% url 'via_reserva3' %}" class="btn">Reservar</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

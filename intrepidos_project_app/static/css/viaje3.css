@@ -1,0 +1,162 @@
+/* ======= RESET Y FUENTES ======= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Russo One', sans-serif;
+    background-color: #f1f2f6;
+}
+
+/* ====== HEADER ====== */
+header {
+    background: white;
+    border-bottom: 20px solid #1a73e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+header img {
+    height: 50px;
+}
+header nav {
+    display: flex;
+    gap: 25px;
+}
+header nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: 0.3s;
+    text-decoration: underline; /* 👈 Siempre subrayados */
+    padding: 0 50px; /* Ajusta margen lateral */
+    font-size: 22px;
+}
+header nav a:hover {
+    color: #1a73e8;
+}
+
+/* ====== DETALLE VIAJE ====== */
+h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+main {
+    padding: 20px 40px;
+}
+
+.detalle-container {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* imagen izquierda, texto derecha */
+    gap: 40px;
+    padding: 40px;
+    align-items: stretch;  /* 👈 Ambas columnas misma altura */
+}
+
+/* Columna izquierda (imagen + datos) */
+.detalle-container .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #d4d4d4;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    height: 149.1%; /* 👈 ocupa toda la altura */
+    margin-top: 0px;
+}
+
+.detalle-container .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+}
+
+.detalle-container .card h3 {
+    background-color: #1976d2;
+    color: white;
+    padding: 8px 100px;
+    border-radius: 30px;
+    border: 1px solid black;
+    margin: 10px 0;
+}
+
+.detalle-container .card p {
+    background-color: #050505;
+    color: white;
+    padding: 10px 45px;
+    border-radius: 30px;
+    border: 1px solid black;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Columna derecha (cuadro gris con descripción y botón) */
+.detalle-container .descripcion {
+    background: #ddd;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140%; /* 👈 misma altura que la tarjeta */
+    margin-top: 0px;
+}
+
+.detalle-container .descripcion h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.detalle-container .descripcion .btn {
+    align-self: flex-end;
+    background-color: #1976d2;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: 1px solid black;
+}
+
+.detalle-container .descripcion .btn:hover {
+    background-color: #163172;
+}
+
+/* Botón regresar */
+.regresar {
+    position: absolute;  /* 👈 fijo arriba a la derecha */
+    top: 120px;          /* 👈 ajusta según la altura del header */
+    right: 40px;
+    padding: 0;
+}
+
+.regresar .btn {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 22px;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: underline;
+}
+
+.regresar .btn img {
+    width: 25px;
+    height: 25px;
+}
+
+.regresar .btn:hover {
+    color: #1a73e8;
+}

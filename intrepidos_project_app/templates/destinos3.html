@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destino 3 Sumapaz - Uzme</title>
+    <link rel="stylesheet" href="{% static 'css/destinos1.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <h2>Pintball paramo de sumapaz - Usme</h2>
+        <div class="regresar">
+            <a href="{% url 'destinos' %}" class="btn">
+                Regresar
+                <img src="{% static 'img/432141-removebg-preview.png' %}" alt="botón foto" class="boton">
+            </a>
+        </div>
+
+        <div class="detalle-container">
+            <div class="card">
+                <img src="{% static 'img/Pintball paramo de sumapaz - Usme.jpg' %}" alt="ciudad reptil">
+                <h3>Pintball paramo de sumapaz - Usme</h3>
+                <p class="p">Precio: $80.000</p>
+                <h4>Transporte: Autobus, Trocha</h4>
+            </div>
+            <div class="descripcion">
+                <h4>¡Prepárate para vivir una batalla épica en uno de los escenarios naturales más impresionantes de Colombia! Disfruta del <br>
+                    paintball como nunca antes: rodeado de neblina, vegetación de páramo y a más de 3.000 metros de altura, en pleno corazón <br>
+                    del majestuoso Páramo de Sumapaz, el más grande del mundo. <br>
+                    <br>
+                    Ubicado en la localidad de Usme (Bogotá), este campo de paintball combina acción, estrategia y naturaleza en estado puro. <br>
+                    Es el plan ideal para grupos de amigos, empresas, despedidas o simplemente para quienes buscan una dosis de adrenalina <br>
+                    en un entorno único.</h4>
+                <div class="botones">
+                    <button class="btn">Ver tipo Guia turistico</button>
+                    <a href="{% url 'reserva3' %}" class="btn">Reservar</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

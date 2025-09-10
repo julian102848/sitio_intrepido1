@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía</title>
+    <link rel="stylesheet" href="{% static 'css/guiaALL.css' %}">
+    <!-- Fuente Russo One -->
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo">
+        <nav>
+            <a href="#">Perfil</a>
+            <a href="{% url 'viajes' %}">Viajes</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'guia' %}">Guías Turísticos</a>
+
+            {% if usuario %}
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <!-- Botón regresar -->
+        <a href="{% url 'guia' %}" class="section-title">
+            Regresar 
+            <img src="{% static 'img/432141-removebg-preview.png' %}" alt="Volver">
+        </a>
+
+        <div class="detalle-container">
+            <!-- Columna izquierda -->
+            <div class="card">
+                <img src="{% static 'img/Foto Guia I Perfil.png' %}" alt="Foto Guía">
+                <h3>Carolina Vargas</h3>
+                <img src="{% static 'img/Logo_Nomada_Tours-removebg-preview.png' %}" alt="Logo Empresa" class="logo">
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="descripcion">
+                <form class="guardar">
+                    <label>Nombre:</label>
+                    <input type="text" value="Carolina" readonly>
+
+                    <label>Apellido:</label>
+                    <input type="text" value="Vargas" readonly>
+
+                    <label>Cédula:</label>
+                    <input type="text" value="1132456785" readonly>
+
+                    <label>Teléfono:</label>
+                    <input type="text" value="3133344556" readonly>
+
+                    <label>Correo:</label>
+                    <input type="text" value="carov@tours.com" readonly>
+
+                    <label>Licencia:</label>
+                    <input type="text" value="56787" readonly>
+
+                    <label>Políglota Sí/No:</label>
+                    <input type="text" value="No" readonly>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
